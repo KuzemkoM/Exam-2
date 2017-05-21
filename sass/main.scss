@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro:300,300i');
+@import "normalize";
+@import "variables";
+@import "mixin";
+@import "grid";
+
+
+*, *:after, *:before{
+	@include box-sizing;
+}
+
+body{
+	font-family: $text-font;
+	color: $font-color;
+	font-weight: $font-weight;
+}
+
+h2 {
+	font-family: $head-font;
+	font-size: 20px;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+}
+
+section {
+	padding-top: 50px;
+}
+
+button {
+	outline: none;
+}
+
+button:hover {
+	background: #81868e;
+	color: #7e74cd;
+}
+
+button:active {
+	background: #81868e;
+	color: #e8e179;
+}
+
+p {
+	font-style: $text-font;
+}
+
+.container {
+	max-width: $container-width;
+	width: 100%;
+}
+
+.logo {
+    display: inline-block;
+    float: left;
+    height: auto;
+    padding-top: 50px;
+}
+
+#main-slide {
+	background: url(../img/bg-1.png) no-repeat center center;
+	background-size: cover;
+}
+
+.menu {
+	display: inline-block;
+	text-decoration: none;
+	text-align: right;
+}
+
+.menu li {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px;
+  margin-right: 15px;
+}
+
+.menu li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu li a:hover {
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+
+.main-slide-content {
+	position: relative;
+	margin-top: 200px;
+	margin-bottom: 70px;
+	text-align: center;
+	color: #fff;
+	h1{
+		font-family: $head-font;
+		font-size: 35px;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+	}
+	p{
+		font-size: 16px;
+	}
+}
+
+.eclipse {
+	margin-top: 200px;
+	margin-left: 50%;
+}
+
+.button {
+	border: none;
+	background: transparent;
+	margin-left: 15px;
+	color: #464646;
+}
+
+.button:hover {
+	border-bottom: 2px solid #8ddac9;
+	background: transparent;
+}
+
+.button-group {
+	color: #464646;
+	margin-left: 30%;
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+#portfolio {
+	background: #f3f3f3;
+}
+.portfolio-info {
+	text-align: center;
+	max-width: 50%;
+}
+
+.img-wrap{
+	position: relative;
+	border-radius: 10px;
+}
+
+.img-wrap img{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+/*Hover эффект с ипользованием display*/
+.img-wrap.use-display .hover-img{
+	display: none;
+}
+
+.img-wrap.use-display:hover .hover-img{
+	display: block;
+	position: absolute;
+	background: rgba(79,186, 116, 0.9);
+	top: 0;
+	left:0;
+	right: 0;
+	bottom: 0;
+	border-radius: 10px;
+	color: #fff;	
+}
+
+/* Hover эффект с ипользованием opacity */
+.img-wrap.use-opacity .hover-img{
+	position: absolute;
+	top: 0;
+	left:0;
+	right: 0;
+	bottom: 0;
+	/*z-index нужен для того что бы hover эффект не накладывался на изображение когда его не видно*/
+	z-index: -1;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.img-wrap.use-opacity:hover .hover-img{
+	background: rgba(79,186, 116, 0.9);
+	z-index: 1;
+	opacity: 1;
+	border-radius: 10px;
+	color: #fff;
+}
+
+/* Hover эффект с ипользованием transform:scale */
+.img-wrap.use-scale .hover-img{
+	position: absolute;
+	top: 0;
+	left:0;
+	right: 0;
+	bottom: 0;
+	/*Делаем блок с нулевой высотой и шириной*/
+	transform: scale(0);
+	transition: all 0.5s ease;
+}
+
+.img-wrap.use-scale:hover .hover-img{
+	background: rgba(79,186, 116, 0.9);
+	border-radius: 10px;
+	transform: scale(1);
+	color: #fff;
+}
+
+/* Hover эффект с ипользованием transform:translate */
+.img-wrap.use-translate{
+	/*Что бы опущенный вниз ховер эффект не был виден*/
+	overflow: hidden;
+}
+
+.img-wrap.use-translate .hover-img{
+	position: absolute;
+	top: 0;
+	left:0;
+	right: 0;
+	bottom: 0;
+	/*Опускаем блок с ховер эффектом вниз за пределы изображения */
+	transform: translate(0, 100%);
+
+	transition: all 0.5s ease;
+}
+
+.img-wrap.use-translate:hover .hover-img{
+	background: rgba(79,186, 116, 0.9);
+	border-radius: 10px;
+	transform: translate(0, 0);
+	color: #fff;
+}
+
+.img-wrap .hover-img .hover-text{
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+	text-align: center;
+}
+
+/* Masonry grid styles */
+img{
+	display: block;
+}
+
+.grid-item{
+	margin-bottom: 5px;
+}
+
+.grid-item-size,
+.grid-item{
+	width: 33%;
+}
+
+#team {
+	margin-bottom: 80px;
+}
+
+.team-head {
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+.slide-text {
+	text-align: right;
+	
+}
+.slide img {
+	float: left;
+	padding-right: 35%;
+}
+
+.love {
+	background: url(../img/bg-2.png) no-repeat center center;
+	background-size: cover; 
+}
+.love-us {
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+.love-us button{
+	background: transparent;
+	border: 1px solid #fff;
+	border-radius: 10px;
+}
+
+#monials {
+	background: #f3f3f3;
+	padding-top: 80px;
+	padding-bottom: 95px;
+}
+
+.monials-head {
+	text-align: center;
+}
+
+.slider {
+	font-size: 16px;
+	background: #fff;
+}
+
+.slider img {
+	float: left;
+}
+
+.mon-slide {
+	padding: 50px 100px;
+
+}
+
+.mon-slide img {
+	margin: 35px;
+}
+
+.partho {
+	color: #19bd9a;
+}
